@@ -617,8 +617,12 @@ ALE supports jumping to the files and locations where symbols are defined
 through any enabled LSP linters. The locations ALE will jump to depend on the
 information returned by LSP servers. The following commands are supported:
 
-|ALEGoToDefinition|      - Open the definition of the symbol under the cursor.
-|ALEGoToDefinitionInTab| - The same, but for opening the file in a new tab.
+|ALEGoToDefinition|         - Open the definition of the symbol under the cursor.
+|ALEGoToDefinitionInTab|    - The same, but for opening the file in a new tab.
+|ALEGoToDefinitionInSplit|  - The same, but for opening the file in a new
+                            split.
+|ALEGoToDefinitionInVSplit| - The same, but for opening the file in a new
+                            vertical split.
 
 
 ===============================================================================
@@ -1713,6 +1717,19 @@ ALEGoToDefinitionInTab                                 *ALEGoToDefinitionInTab*
   A plug mapping `<Plug>(ale_go_to_definition_in_tab)` is defined for this
   command.
 
+ALEGoToDefinitionInSplit                             *ALEGoToDefinitionInSplit*
+
+  The same as |ALEGoToDefinition|, but opens results in a new split.
+
+  A plug mapping `<Plug>(ale_go_to_definition_in_tab_split)` is defined for this
+  command.
+
+ALEGoToDefinitionInVSplit                           *ALEGoToDefinitionInVSplit*
+
+  The same as |ALEGoToDefinition|, but opens results in a new vertical split.
+
+  A plug mapping `<Plug>(ale_go_to_definition_in_tab_vsplit)` is defined for this
+  command.
                                                                      *:ALELint*
 ALELint                                                               *ALELint*
 

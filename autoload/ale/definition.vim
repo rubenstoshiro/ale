@@ -20,8 +20,12 @@ function! ale#definition#Execute(expr) abort
 endfunction
 
 function! ale#definition#Open(options, filename, line, column) abort
-    if a:options.open_in_tab
+    if a:options.open_in ==# 'tab'
         call ale#definition#Execute('tabedit ' . fnameescape(a:filename))
+    elseif a:options.open_in ==# 'split'
+        call ale#definition#Execute('split ' . fnameescape(a:filename))
+    elseif a:options.open_in ==# 'vsplit'
+        call ale#definition#Execute('vsplit ' . fnameescape(a:filename))
     else
         call ale#definition#Execute('edit ' . fnameescape(a:filename))
     endif
@@ -108,7 +112,7 @@ function! s:GoToLSPDefinition(linter, options) abort
     let l:request_id = ale#lsp#Send(l:id, l:message, l:root)
 
     let s:go_to_definition_map[l:request_id] = {
-    \   'open_in_tab': get(a:options, 'open_in_tab', 0),
+    \   'open_in': get(a:options, 'open_in', ''),
     \}
 endfunction
 
